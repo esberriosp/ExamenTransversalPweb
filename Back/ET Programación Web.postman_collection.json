@@ -1,0 +1,1139 @@
+{
+	"info": {
+		"_postman_id": "9ffa2aaf-73cc-494a-ac76-5d11d1a0c809",
+		"name": "ET Programación Web",
+		"description": "Documentación de los EndPoint generados para el Proyecto de Examen Transversal del curso Programación web publicado en [GitHub](https://github.com/jorsandoval/ET121_3B_PGY3121).\n\nParticipan:\n\n*   Vicente Espinosa.\n*   Cristóbal Riffo.\n*   Esteban Berrios.\n*   Jorge Sandoval.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21223735"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "singUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Calamardo\",\r\n    \"apellidos\" : \"Tentaculos\",\r\n    \"correo\" : \"Calamardo.Tentaculos@duocuc.cl\",\r\n    \"password\": \"@lgun0sD1asS0nM3jor3s\",\r\n    \"direccion\" : \"123 de la calle concha\",\r\n    \"telefono\" : \"987645675\",\r\n    \"comuna\" : \"Arica y Parinacota\",\r\n    \"provincia\" : \"15\",\r\n    \"region\" : \"Arica y Parinacota\",\r\n    \"rut\" : \"1995766-8\",\r\n    \"isSuscrito\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uri}}/Auth/signUp",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Auth",
+								"signUp"
+							]
+						},
+						"description": "Permite el registro de los usuarios y creación de token."
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Bob.Esponja@duocuc.cl\",\r\n    \"password\": \"@lgun0sD1asS0nM3jor3s\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uri}}/Auth/login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						},
+						"description": "Permite el login del usuario cuando este haya realizado el SingUp y Create de usuario correspondiente."
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Calamardo.Tentaculos@duocuc.cl\",\r\n    \"password\": \"Duoc123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uri}}/Auth/changePassword",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Auth",
+								"changePassword"
+							]
+						},
+						"description": "Permite actualizar la contraseña de usuario."
+					},
+					"response": []
+				}
+			],
+			"description": "Permite las operaciones sobre Auth"
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{uri}}/Usuarios/usuarios/",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Usuarios",
+								"usuarios",
+								""
+							]
+						},
+						"description": "Permite obtener todos los usuarios existentes en el sistema."
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{uri}}/Usuarios/usuarios/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Usuarios",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "Permite obtener el detalle de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Bob\",\r\n    \"apellidos\" : \"Esponja Pantalones Cuadrados\",\r\n    \"correo\" : \"Bob.Esponja@duocuc.cl\",\r\n    \"direccion\" : \"124 de la calle concha\",\r\n    \"telefono\" : \"99999999\",\r\n    \"comuna\" : \"Arica y Parinacota\",\r\n    \"provincia\" : \"15\",\r\n    \"region\" : \"Arica y Parinacota\",\r\n    \"rut\" : \"18765665-8\",\r\n    \"isSuscrito\" : 1,\r\n    \"isAdmin\" : 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uri}}/Usuarios/usuarios/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Usuarios",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "Permite actualizar el registro de un usuario mediante el IdUsuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subscribe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"vice.espinosa@duocuc.cl\",\r\n    \"isSuscrito\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uri}}/Usuarios/usuarios/suscribe",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Usuarios",
+								"usuarios",
+								"suscribe"
+							]
+						},
+						"description": "Permite actualizar el registro de un usuario mediante el IdUsuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{uri}}/Usuarios/usuarios/2",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"Usuarios",
+								"usuarios",
+								"2"
+							]
+						},
+						"description": "Permite la eliminación de un usuario mediante el IdUsuario."
+					},
+					"response": []
+				}
+			],
+			"description": "Permite las operaciones sobre Usuarios."
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Producto",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Productos/productos",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"productos"
+									]
+								},
+								"description": "Permite obtener todos los productos existentes en la base de datos."
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Productos/productos/byId/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"productos",
+										"byId",
+										"1"
+									]
+								},
+								"description": "Permite obtener el detalle de un producto al consultar por el idProducto."
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllByIdCategoria",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Productos/productos/byCategoria/2",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"productos",
+										"byCategoria",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n{\r\n    \"nombre\": \"Kit herramientas de jardín para cultivo modelo 200s\",\r\n    \"valor\": 13990,\r\n    \"descripcion\": \"Juego de herramientas para jardineria\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto1Categoria1.png\",\r\n    \"categoria\": 1\r\n},\r\n{\r\n    \"nombre\": \"Pala plantadora metal Celeste\",\r\n    \"valor\": 11990,\r\n    \"descripcion\": \"Pala de metal\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto2Categoria1.png\",\r\n    \"categoria\": 1\r\n},\r\n{\r\n    \"nombre\": \"Tijera de podar aluminio gris\",\r\n    \"valor\": 34990,\r\n    \"descripcion\": \"Cuchilla inferior de acero inoxidable, con mangos de aluminio reforzado, cuchilla intercambiable ajuste de cuchilla\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto3Categoria1.png\",\r\n    \"categoria\": 1\r\n},\r\n{\r\n    \"nombre\": \"Guante cuero combinado ergo\",\r\n    \"valor\": 5790,\r\n    \"descripcion\": \"Guantes de palma y nudillo de piel de cabra de color blanco natural.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto4Categoria1.png\",\r\n    \"categoria\": 1\r\n},\r\n{\r\n    \"nombre\": \"Desmalezador 12 cm de metal plateado\",\r\n    \"valor\": 4990,\r\n    \"descripcion\": \"Mantener tu jardín limpio y prolijo es posible con el Desmalezador Metal de Ergo , pues su punta permite arrancar de raíz la hierba seca y aquella vegetación que entorpece el crecimiento de tus plantas\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto5Categoria1.png\",\r\n    \"categoria\": 1\r\n},\r\n{\r\n    \"nombre\": \"Azadilla 3 puntas mango telescopico\",\r\n    \"valor\": 4990,\r\n    \"descripcion\": \"Herramienta ultra resistente\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto6Categoria1.png\",\r\n    \"categoria\": 1\r\n},\r\n{\r\n    \"nombre\": \"Macetero rústico de arcilla 39x29 cm terracota\",\r\n    \"valor\": 12990,\r\n    \"descripcion\": \"Dale un toque único a tus espacios con este Macetero de la marca Casa Bonita. Confeccionado en arcilla posee un hermoso diseño y tamaño ideal para lucir tus flores y plantas en el comedor, dormitorios o donde decidas.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto1Categoria2.png\",\r\n    \"categoria\": 2\r\n},\r\n{\r\n    \"nombre\": \"Macetero de plástico 17 cm terracota\",\r\n    \"valor\": 1390,\r\n    \"descripcion\": \"Dale un toque único a tus espacios con este Macetero de la marca Casa Bonita. Confeccionado en plástico posee un tamaño ideal para lucir tus flores y plantas en el comedor, dormitorios o donde decidas.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto2Categoria2.png\",\r\n    \"categoria\": 2\r\n},\r\n{\r\n    \"nombre\": \"Base de plástico para macetero 17 cm\",\r\n    \"valor\": 1390,\r\n    \"descripcion\": \"Dale un toque único a tus espacios con este Macetero de la marca Casa Bonita. Confeccionado en plástico posee un tamaño ideal para lucir tus flores y plantas en el comedor, dormitorios o donde decidas.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto3Categoria2.png\",\r\n    \"categoria\": 2\r\n},\r\n{\r\n    \"nombre\": \"Huerta de balcón autoriego 60x17x23 cm\",\r\n    \"valor\": 32990,\r\n    \"descripcion\": \"Huerta balcón auto-riego con gancho para colgar\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto4Categoria2.png\",\r\n    \"categoria\": 2\r\n},\r\n{\r\n    \"nombre\": \"Jardinera de plástico 15x19x46 cm terracota\",\r\n    \"valor\": 5490,\r\n    \"descripcion\": \"Dale vida a tu jardin\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto5Categoria2.png\",\r\n    \"categoria\": 2\r\n},\r\n{\r\n    \"nombre\": \"Set de 2 Maceteros Biodegradables Cuadrado Amarillo\",\r\n    \"valor\": 3990,\r\n    \"descripcion\": \"Dale un toque único a tus espacios con este Set de 2 Maceteros de la marca DecoGreen. Confeccionados en fibra vegetal y resina orgánica poseen un hermoso diseño y tamaño ideal para decorar tus proyectos de jardinería, sin contaminar. Cuando desees deshacerte de estos maceteros te recomendamos romperlo y enterrarlo y en menos de 1 año, ya se habrá biodegradado.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto6Categoria2.png\",\r\n    \"categoria\": 2\r\n},\r\n{\r\n    \"nombre\": \"Viola mini multiflor 0,1 m\",\r\n    \"valor\": 1790,\r\n    \"descripcion\": \"Planta de Exterior\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto1Categoria3.png\",\r\n    \"categoria\": 3\r\n},\r\n{\r\n    \"nombre\": \"Boj simple 25 cm CT14\",\r\n    \"valor\": 12990,\r\n    \"descripcion\": \"Planta de riego moderado\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto2Categoria3.png\",\r\n    \"categoria\": 3\r\n},\r\n{\r\n    \"nombre\": \"Dólar negro 10 cm CT 13\",\r\n    \"valor\": 3990,\r\n    \"descripcion\": \"Planta de interior\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto3Categoria3.png\",\r\n    \"categoria\": 3\r\n},\r\n{\r\n    \"nombre\": \"Boj verde 0,50 m\",\r\n    \"valor\": 3990,\r\n    \"descripcion\": \"Planta de riego moderado\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto4Categoria3.png\",\r\n    \"categoria\": 3\r\n},\r\n{\r\n    \"nombre\": \"Schefflera 0,25 m CT 14\",\r\n    \"valor\": 3990,\r\n    \"descripcion\": \"Planta de riego moderado\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto5Categoria3.png\",\r\n    \"categoria\": 3\r\n},\r\n{\r\n    \"nombre\": \"Evonimo nana 0,15 m\",\r\n    \"valor\": 4990,\r\n    \"descripcion\": \"Planta de riego moderado\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto6Categoria3.png\",\r\n    \"categoria\": 3\r\n},\r\n{\r\n    \"nombre\": \"Semilla de Prado Estadio 500gr bolsa\",\r\n    \"valor\": 7290,\r\n    \"descripcion\": \"Las Semillas Prado Estadio 0,5 kilos Ergo son una mezcla de alta resistencia seleccionada especialmente para lugares de uso intenso como pueden ser campos deportivos, alrededores de piscinas y muchos otros, tanto públicos como privados. Con estas semillas, tu jardín será mucho más resistente a la sequía por lo que te ahorrará tiempo y recursos para regarlo.Características de las Semillas Prado Estadio 0,5 kilos Ergo: su mezcla de alta resistencia tiene también ventajas para cubrir más rápidamente cualquier espacio por su velocidad de crecimiento. Tiene la ventaja de que también soporta eficientemente el paso de la gente y el constante pisoteo, por lo es el adecuado en cualquier jardín de uso intenso. Por sus propiedades puede ser sembrado en cualquier temporada del año, evitando hacerlo cuando hay un frío intenso o lluvias muy fuertes.Uno de los beneficios de las Semillas Prado Estadio 0,5 kilos es que cada bolsa te ofrece un rendimiento de hasta 15 metros cuadrados, especialmente si siembras las semillas en el otoño. En caso de que necesites sembrarlas en primavera o verano, el rendimiento es de todas maneras muy adecuado, pudiendo cubrir con un kilo hasta 20 metros cuadrados. La ventaja es que es muy fácil calcular la cantidad que necesitas de semillas en base a la superficie de terreno que necesitas cubrir.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto1Categoria4.png\",\r\n    \"categoria\": 4\r\n},\r\n{\r\n    \"nombre\": \"Semilla de Prado Rustic Grass 1 kg\",\r\n    \"valor\": 12690,\r\n    \"descripcion\": \"Rustic Grass es una mezcla de finas gramíneas y Trébol Enano que se caracteriza por ser de rápido establecimiento y por dar origen a un césped resistente al pisoteo, tolerante al déficit hídrico moderado y mantiene su color verde todo el año.Su mezcla desarrollada, principalmente, para ser usada en jardines de alto tráfico como parques, bordes de piscina y multicanchas. Se adapta muy bien a zonas semi-sombrías y a suelos pesados con mal drenaje.EPOCA DE SIEMBRALa mejor fecha es temprano en otoño, pero se puede sembrar en otras épocas del año, evitando períodos de fríos y lluviosos. En siembras de primavera-verano se recomienda aumentar la dosis a 1 kg por cada 15 m2, teniendo especial cuidado de mantener la humedad del suelo.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto2Categoria4.png\",\r\n    \"categoria\": 4\r\n},\r\n{\r\n    \"nombre\": \"Semilla piscina 5 kg saco\",\r\n    \"valor\": 33490,\r\n    \"descripcion\": \"La Semilla Pimiento Vilmorín es ideal para huerto casero. Si estabas pensando en cultivar hortalizas en el jardín de tu vivienda, estas semillas pueden contribuir en gran medida. Cualquier miembro de tu familia puede sembrarlas con facilidad y sin demasiado esfuerzo. Una vez que crezcan, con sus respectivos cuidados, podrás disfrutar de este delicioso alimento que podrás comer sólo o como complemento de una gran cantidad de comidas.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto3Categoria4.png\",\r\n    \"categoria\": 4\r\n},\r\n{\r\n    \"nombre\": \"Tierra de hoja para jardín 80 litros saco\",\r\n    \"valor\": 7990,\r\n    \"descripcion\": \"La tierra de hojas 80 litros Anasac es perfecta para mantener tus plantas y siembras en buen estado.Características de la tierra de hojas 80 litros Anasac: Esta tierra es desinfectada, posee un gran contenido de materia orgánica y una alta densidad. Es indicada para su uso en prados, siembras, resiembras, plantas de interior y exterior.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto4Categoria4.png\",\r\n    \"categoria\": 4\r\n},\r\n{\r\n    \"nombre\": \"Tierra para macetero 15 litros saco\",\r\n    \"valor\": 7990,\r\n    \"descripcion\": \"La tierra muy buena.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto5Categoria4.png\",\r\n    \"categoria\": 4\r\n},\r\n{\r\n    \"nombre\": \"Tierra para macetero 6 litros bolsa\",\r\n    \"valor\": 1790,\r\n    \"descripcion\": \"La tierra muy buena.\",\r\n    \"stock\": 10,\r\n    \"imagen\": \"./img/Producto6Categoria4.png\",\r\n    \"categoria\": 4\r\n}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/productos/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"productos",
+										""
+									]
+								},
+								"description": "Permite realizar creación del producto de dos formas.\n\n1.  Objeto simple.\n2.  Lista de objetos."
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"stock\": 9\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/productos/byId/25",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"productos",
+										"byId",
+										"25"
+									]
+								},
+								"description": "Permite actualizar la información de un producto consultando por el idProducto"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"stock\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/productos/byId/15",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"productos",
+										"byId",
+										"15"
+									]
+								},
+								"description": "Permite la eliminación de un producto mediante su idProducto."
+							},
+							"response": []
+						}
+					],
+					"description": "Permite las operaciones sobre Producto."
+				},
+				{
+					"name": "Categoria",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Productos/categoria/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"categoria",
+										""
+									]
+								},
+								"description": "Permite obtener todas las categorías existentes en la base de datos."
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Productos/categoria/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"categoria",
+										"1"
+									]
+								},
+								"description": "Permite consultar el nombre de una categoría mediante idCategoria."
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"nombreCategoria\": \"herramientas de jardin\"\r\n    },\r\n    {\r\n        \"nombreCategoria\": \"maceteros y accesorios\"\r\n    },\r\n    {\r\n        \"nombreCategoria\": \"plantas y flores\"\r\n    },\r\n    {\r\n        \"nombreCategoria\": \"tierras y semillas\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/categoria/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"categoria",
+										""
+									]
+								},
+								"description": "Permite realizar creación de las categorías de dos formas.\n\n1.  Objeto simple.\n2.  Lista de objetos."
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreCategoria\": \"herramientas de jardin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/categoria/2",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"categoria",
+										"2"
+									]
+								},
+								"description": "Permite actualizar información de una categoría mediante el idCategoria."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreCategoria\": \"herramientas de jardin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/categoria/4",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"categoria",
+										"4"
+									]
+								},
+								"description": "Permite eliminar una categoría por idCategoria."
+							},
+							"response": []
+						}
+					],
+					"description": "Permite las operaciones sobre Categoría."
+				},
+				{
+					"name": "Promocion",
+					"item": [
+						{
+							"name": "GetAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pordesct\": 10,\r\n    \"producto\": [4,3]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/promociones/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"promociones",
+										""
+									]
+								},
+								"description": "Permite obtener todas la promociones existentes."
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pordesct\": 10,\r\n    \"producto\": [4,3]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/promociones/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"promociones",
+										"1"
+									]
+								},
+								"description": "Permite obtener información de una promoción por el idPromocion."
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pordesct\": 20,\r\n    \"productos\": [1,2,3],\r\n    \"descripcion\": \"Oferta de la semana\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/promociones/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"promociones",
+										""
+									]
+								},
+								"description": "Permite realizar creación de las promociones de dos formas.\n\n1.  Objeto simple.\n2.  Lista de objetos."
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pordesct\": 25,\r\n    \"producto\": [2,3]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Productos/promociones/6",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"promociones",
+										"6"
+									]
+								},
+								"description": "Permite actualizar las promociones mediante el IdPromociones."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Productos/promociones/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Productos",
+										"promociones",
+										"1"
+									]
+								},
+								"description": "Permite eliminar las promociones mediante el IdPromocion."
+							},
+							"response": []
+						}
+					],
+					"description": "Permite las operaciones sobre Promoción."
+				}
+			],
+			"description": "Permite las operaciones sobre Productos, Categorías, Promociones y Promociones por producto."
+		},
+		{
+			"name": "Ventas",
+			"item": [
+				{
+					"name": "Estado Venta",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Ventas/estadoVenta/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"estadoVenta",
+										""
+									]
+								},
+								"description": "Permite obtener todos los estados creados para las ventas."
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Ventas/estadoVenta/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"estadoVenta",
+										"1"
+									]
+								},
+								"description": "StartFragment\n\nPermite obtener el nombre de un estado de venta mediante el idEstadoVenta.\n\nEndFragment"
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[    \r\n    {\r\n        \"nombreEstadoVenta\": \"Preparación\"\r\n    },\r\n    {\r\n        \"nombreEstadoVenta\": \"Enviado\"\r\n    },\r\n    {\r\n        \"nombreEstadoVenta\": \"Entregado\"\r\n    }\r\n    ]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/estadoVenta/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"estadoVenta",
+										""
+									]
+								},
+								"description": "Permite realizar creación de los estados de venta de dos formas.\n\n1.  Objeto simple.\n2.  Lista de objetos."
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreEstadoVenta\": \"Borrar2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/estadoVenta/8",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"estadoVenta",
+										"8"
+									]
+								},
+								"description": "Permite actualizar el nombre del estado de venta por el IdVenta."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreEstadoVenta\": \"Borrar2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/estadoVenta/7",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"estadoVenta",
+										"7"
+									]
+								},
+								"description": "Permite eliminar un Estado de Venta."
+							},
+							"response": []
+						}
+					],
+					"description": "Permite operar sobre Estado Venta."
+				},
+				{
+					"name": "Venta",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Ventas/ventas/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"ventas",
+										""
+									]
+								},
+								"description": "Permite obtener todas las ventas registradas en el sistema."
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Ventas/ventas/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"ventas",
+										"1"
+									]
+								},
+								"description": "Permite obtener el detalle de una venta por el IdVenta."
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"totalVenta\": 1000,\r\n    \"usuario\": 1,\r\n    \"estadoVenta\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/ventas/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"ventas",
+										""
+									]
+								},
+								"description": "Permite realizar creación de ventas de dos formas.\n\n1.  Objeto simple.\n2.  Lista de objetos."
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"totalVenta\": 1000,\r\n    \"usuario\": 3,\r\n    \"estadoVenta\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/ventas/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"ventas",
+										"1"
+									]
+								},
+								"description": "Permite actualizar una venta mediante el IdVenta."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Ventas/ventas/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"ventas",
+										"1"
+									]
+								},
+								"description": "Permite la eliminación de una venta mediante idVenta."
+							},
+							"response": []
+						}
+					],
+					"description": "Permite operar sobre venta."
+				},
+				{
+					"name": "Detalle Venta",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Ventas/detalleVentas/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"detalleVentas",
+										""
+									]
+								},
+								"description": "Permite listar todos los detalle de ventas registrados en el sistema."
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/Ventas/detalleVentas/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"detalleVentas",
+										"1"
+									]
+								},
+								"description": "Permite listar el detalle de una venta en específico mediante el IdDetalleVenta."
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"venta\": 1,\r\n    \"producto\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/detalleVentas/",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"detalleVentas",
+										""
+									]
+								},
+								"description": "Permite la creación de una detalle de venta."
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"venta\": 1,\r\n    \"producto\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/detalleVentas/1",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"detalleVentas",
+										"1"
+									]
+								},
+								"description": "Permite actualizar el detalle de una venta mediante el IdDetalleVenta."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"venta\": 1,\r\n    \"producto\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/Ventas/detalleVentas/4",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"Ventas",
+										"detalleVentas",
+										"4"
+									]
+								},
+								"description": "Permite la eliminación de un detalle de venta mediante el IdDetalleVenta."
+							},
+							"response": []
+						}
+					],
+					"description": "Permite operar sobre Detalle Venta."
+				}
+			],
+			"description": "Permite las operaciones sobre Ventas, Estada Venta y Detalle Venta."
+		},
+		{
+			"name": "Api Regiones Gob",
+			"item": [
+				{
+					"name": "Regiones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apis.digital.gob.cl/dpa/regiones",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"digital",
+								"gob",
+								"cl"
+							],
+							"path": [
+								"dpa",
+								"regiones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Provincias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apis.digital.gob.cl/dpa/provincias",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"digital",
+								"gob",
+								"cl"
+							],
+							"path": [
+								"dpa",
+								"provincias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "uri",
+			"value": "http://localhost:8000/api/v1",
+			"type": "string"
+		}
+	]
+}
